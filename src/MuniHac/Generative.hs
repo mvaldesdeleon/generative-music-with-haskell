@@ -1,6 +1,7 @@
 module MuniHac.Generative () where
 
 import Euterpea
+import System.Random
 
 monoInstrument :: Instr (Mono AudRate)
 monoInstrument duration pch vel params =
@@ -33,10 +34,16 @@ instrMap :: InstrMap (Stereo AudRate)
 instrMap = [(monoInstr, mono2stereo monoInstrument), (stereoInstr, stereoInstrument)]
 
 drumBeat :: Music AbsPitch
-drumBeat = undefined
+drumBeat =
+  let g0 = mkStdGen 5
+      nums = take 128 $ randomRs (50 :: AbsPitch, 85) g0
+  in line $ map (note sn) nums
 
 bassLine :: Music AbsPitch
-bassLine = undefined
+bassLine =
+  let g0 = mkStdGen 5
+      nums = take 128 $ randomRs (50 :: AbsPitch, 85) g0
+  in line $ map (note sn) nums
 
 drums :: Music (AbsPitch, Volume)
 drums = (\p -> (p, 40)) <$> instrument monoInstr drumBeat
