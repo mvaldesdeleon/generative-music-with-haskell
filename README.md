@@ -1,5 +1,9 @@
 # Generative Music with Haskell
 
+## Slides
+
+[PDF](slides.pdf)
+
 ## Getting started
 
 ### Euterpea2
