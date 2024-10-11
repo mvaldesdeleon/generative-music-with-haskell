@@ -39,3 +39,4 @@ You do not need to implement all the modules, so I recommend coming up with a pl
 
 ## Solutions
 
+Ultimately, I want you to have fun and experiment making sounds. If you need a specific module but don't want to implement it, or if you're curious to compare implementations, you can find the solutions alongside all my test code in the `experimental` branch.
