@@ -46,3 +46,13 @@ Once you have some sounds, you can go to the [Generative.hs](src/MuniHac/Generat
 ## Solutions
 
 Ultimately, I want you to have fun and experiment making sounds. If you need a specific module but don't want to implement it, or if you're curious to compare implementations, you can find the solutions alongside all my test code in the `experimental` branch.
+
+## What next?
+
+If you followed along the slides for the first part, even ignoring all the Haskell: Congratulations, you now know how to operate a synthesizer. If you want to apply this knowledge immediately, here are some suggestions.
+
+* [Pure Data](https://puredata.info/)
+* [Plugdata](https://plugdata.org/)
+* [Cardinal](https://cardinal.kx.studio/)
+* [Strudel](https://strudel.cc/)
+* [Tidal Cycles](https://tidalcycles.org/)
