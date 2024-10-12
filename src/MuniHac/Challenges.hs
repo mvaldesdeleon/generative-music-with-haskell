@@ -58,9 +58,12 @@ vibrato = undefined
 tremolo :: AudSF (Double, Double, Double) Double
 tremolo = undefined
 
--- signal, time
-portamento :: AudSF (Double, Double) Double
-portamento = undefined
+-- signal, rate
+portamento :: forall p. (Clock p) => Signal p (Double, Double) Double
+portamento =
+  let sr = rate (undefined :: p)
+  in proc (sig, rate) -> do
+    outA -< undefined
 
 -- signal, delay, feedback
 feedbackDelay :: AudSF (Double, Double, Double) Double
