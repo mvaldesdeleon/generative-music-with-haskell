@@ -41,7 +41,7 @@ At the bottom you'll find suggestions on how to combine these modules to synthes
 
 You do not need to implement all the modules, so I recommend coming up with a plan as to which kind of sounds you'd like to synthesize first, then working on the modules you need for those sounds.
 
-Once you have some sounds, you can go to the [Generative.hs](src/MuniHac/Generative.hs). There you will find additional code to turn your sounds into MIDI instruments, generate some MIDI notes, and render the result.
+Once you have some sounds, you can go to the [Generative.hs](src/MuniHac/Generative.hs). There you will find additional code to turn your sounds into MIDI instruments, generate some MIDI notes, and render the result. You will also find some helpers and ideas for generating random melodies.
 
 ## Solutions
 
