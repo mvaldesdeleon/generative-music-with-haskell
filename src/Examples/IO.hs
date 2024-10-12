@@ -104,18 +104,20 @@ testSandbox = do
   -- outFile "s2.wav" 5.0 s2
   -- outFile "s3.wav" 5.0 s3
   -- outFile "s3b.wav" 5.0 (ringMod s1 s2)
-  -- outFile "s3b-sh2.wav" 5.0 (noiseWhite 42 &&& (envLine 20 5 1 >>> phasor) >>> sampleAndHold)
-  -- outFile "sweep.wav" 1.0 (noiseSweep 1.0)
-  outFile
-    "biquad-notch.wav"
-    1.0
-    ( noiseWhite 42
-        >>> filterCircle 0.5 10000 0.25
-        >>> filterCircle 0.5 10000 0.10
-        >>> filterCircle 0.65 18000 0.03
-        >>> filterCircle 0.15 4000 0.02
-        >>> filterCircle 1.0 5000 0.30
-    )
+  outFile "s3b-sh2-portamento.wav" 5.0 (noiseWhite 42 &&& (envLine 20 5 1 >>> phasor) >>> sampleAndHold >>> portamento_ 10)
+  outFile "s3b-sh2.wav" 5.0 (noiseWhite 42 &&& (envLine 20 5 1 >>> phasor) >>> sampleAndHold)
+
+-- outFile "sweep.wav" 1.0 (noiseSweep 1.0)
+-- outFile
+--   "biquad-notch.wav"
+--   1.0
+--   ( noiseWhite 42
+--       >>> filterCircle 0.5 10000 0.25
+--       >>> filterCircle 0.5 10000 0.10
+--       >>> filterCircle 0.65 18000 0.03
+--       >>> filterCircle 0.15 4000 0.02
+--       >>> filterCircle 1.0 5000 0.30
+--   )
 
 -- outFile "circles.wav" 1.0 circles
 

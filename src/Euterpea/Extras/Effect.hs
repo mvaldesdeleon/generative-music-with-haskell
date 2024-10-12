@@ -8,6 +8,8 @@ module Euterpea.Extras.Effect
     ringMod,
     sampleAndHold_,
     sampleAndHold,
+    portamento_,
+    portamento,
   )
 where
 
@@ -50,3 +52,27 @@ sampleAndHold =
         c <- delay 0 -< ctrl
         y <- delay 0 -< if s then sig else y
     outA -< y
+
+portamento_ :: forall p. (Clock p) => Double -> Signal p Double Double
+portamento_ r =
+  let sr = rate (undefined :: p)
+      delta = r / sr
+   in proc sig -> do
+        rec let next
+                  | sig > s = min sig (s + delta)
+                  | sig < s = max sig (s - delta)
+                  | otherwise = sig
+            s <- delay 0 -< next
+        outA -< s
+
+portamento :: forall p. (Clock p) => Signal p (Double, Double) Double
+portamento =
+  let sr = rate (undefined :: p)
+   in proc (sig, r) -> do
+        rec let delta = r / sr
+                next
+                  | sig > s = min sig (s + delta)
+                  | sig < s = max sig (s - delta)
+                  | otherwise = sig
+            s <- delay 0 -< next
+        outA -< s
