@@ -46,8 +46,6 @@ trianglePWM = undefined
 phasor :: AudSF Double Double
 phasor = undefined
 
-
-
 -- Effects
 
 -- signal, frequency, depth
@@ -62,8 +60,8 @@ tremolo = undefined
 portamento :: forall p. (Clock p) => Signal p (Double, Double) Double
 portamento =
   let sr = rate (undefined :: p)
-  in proc (sig, rate) -> do
-    outA -< undefined
+   in proc (sig, rate) -> do
+        outA -< undefined
 
 -- signal, delay, feedback
 feedbackDelay :: AudSF (Double, Double, Double) Double
@@ -79,7 +77,6 @@ distortion = undefined
 sampleAndHold :: AudSF (Double, Double) Double
 sampleAndHold = undefined
 
-
 -- Envelope generators
 envAR :: (Clock p) => Double -> Double -> Signal p () Double
 envAR = undefined
@@ -92,8 +89,6 @@ envADSR = undefined
 
 envARexp2 :: (Clock p) => Double -> Double -> Double -> Double -> Signal p () Double
 envARexp2 = undefined
-
-
 
 -- Biquadratic filters
 -- https://webaudio.github.io/Audio-EQ-Cookbook/audio-eq-cookbook.html
@@ -109,8 +104,6 @@ filterBandPassBQ = undefined
 
 filterNotchBQ :: forall p. (Clock p) => Signal p (Double, Double, Double) Double
 filterNotchBQ = undefined
-
-
 
 -- Percussive sounds
 -- Kick drum
@@ -140,7 +133,7 @@ filterNotchBQ = undefined
 
 -- Melodic sounds
 --
--- Basic 
+-- Basic
 --    Pick an oscillator (start with square or saw)
 --    Add a suitable envelope
 --
